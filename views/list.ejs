@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据查看-老王个人记账系统</title>
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+    <style type="text/css">
+    	div{
+    		/*border:1px solid red;*/
+    	}
+    </style>
+  </head>
+  <body>
+	
+	<div class="container">	
+		
+	<div class="text-right">
+		<a href="/logout" class="btn btn-default">退出</a>
+		<a href="/month" class="btn btn-default">按月统计</a>
+		<a href="/stat" class="btn btn-default">分类统计</a>
+		<a href="/record" class="btn btn-default">记账</a>
+	</div>
+	<table class="table table-striped table-bordered table-condensed"> 
+		<caption><h3 class="text-info">记账信息详情</h3></caption>
+		<thead>
+			<tr>
+				<th style="width:7em;">日期</th>
+				<th>科目</th>
+				<th>金额</th>
+				<th>备注</th>
+			</tr>	
+		</thead>
+		<tbody>
+		<%
+			consumes.forEach(function(consume, index) { 
+		%> 
+			<tr>
+				<td><%= consume.consumeDate %></td> 
+				<td><%= consume.consumeSubject %></td> 
+				<td><%= consume.consumeAmount %></td> 
+				<td><%= consume.consumeRemark %></td> 
+			</tr>
+		<%}) %> 
+		</tbody>
+	</table>
+
+</div>
+
+	<script type="text/javascript" src='/javascripts/jquery-1.11.0.min.js'></script>
+	<script type="text/javascript" src='/javascripts/bootstrap.min.js'></script>
+
+ </body>
+</html>
